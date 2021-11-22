@@ -1,0 +1,199 @@
+/* NavBar Stylings */
+
+.header{
+    width: 100%;
+    height:657px;
+    background-image: url(../images/home_slider.jfif);
+    background-size: cover;
+}
+
+#navb{
+    z-index:9999;
+}
+
+.navbar{
+    width:100%;
+    padding: 20px;
+    position: fixed;
+    transition: 0.5s;
+    border-radius: 0px;
+}
+
+.navbar div{
+    color: white;
+    font-size:30px;
+    font-weight: 700;
+    font-family:'myFont', sans-serif;
+} 
+
+@media (max-width: 1150px) {
+    .navbar-header {
+        float: none;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        background-color: rgba(141, 146, 145,0.2);
+        backdrop-filter: blur(100px);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+        margin: 7.5px -15px;
+    }
+    .navbar-nav>li {
+        float: none;
+    }
+
+    .navbar-collapse.collapse.in { 
+        display: block!important;
+    }
+}
+
+.underline{
+    position:relative;
+    text-decoration:none;
+    display:inline-block;
+}
+.underline:after {
+    display:block;
+    content: '';
+    border-bottom: solid 2px rgba(255,255,255,0.8); 
+    transform: scaleX(0);  
+    transition: transform 250ms ease-in-out;
+    transform-origin:50% 
+}
+.underline:hover:after { 
+    transform: scaleX(1);
+    transform-origin:50%;
+}
+
+.myNav li.active:after{
+    position:relative;
+    display:block;
+    content: '';
+    border-bottom: solid 2px rgba(255,255,255,0.8);
+} 
+  
+ul{
+    width:80%;
+    margin:0 auto;
+    padding: 0px; 
+}
+
+ul li{
+    list-style: none;
+    display:inline-block;
+    padding: 20px 20px;
+    color: white;
+    font-size: 18px;
+    font-family:'myFont', sans-serif;
+    cursor: pointer;
+    font-weight: 400;   
+}
+
+.icon-bar{
+    background-color: whitesmoke
+}
+
+/* Register Form Stylings */
+
+.myBox{
+    margin-top: 110px;
+}
+
+@media all and (max-width: 991px) and (min-width: 100px) {
+    .myBox{
+        margin-top:-10px;
+    }
+}
+
+.innerBox{
+    text-align: center;
+}
+
+.firstCol{
+    background-image: url(../images/about_1.jfif);
+    height: 490px;
+    background-repeat: round;
+    opacity: 0.85;
+}
+
+.titleTag{
+    font-family: 'myFont',sans-serif;
+    color:rgba(65, 64, 64, 0.726);
+    font-size:35px;
+    margin-top:180px;
+    padding: 10px;
+    background-color: white;
+}
+
+.descriptionTag{
+    font-family: 'myFont',sans-serif;
+    color:rgb(150, 147, 147);;
+    font-size:22px;
+    padding: 5px;
+    background-color: white;
+}
+.secondCol{
+    background-color: rgba(229, 226, 226,0.8);
+    height: 490px;
+}
+
+.formHead{
+    font-family: 'myFont',sans-serif;
+    font-size:30px;
+    padding: 10px;
+    color: rgba(65, 64, 64, 0.726);
+}
+
+.inputfield{
+    width: 80%;
+    height:40px;
+    border: none ;
+    outline: none;
+    font-size: 15px; 
+    margin: 10px;
+    padding: 10px;
+    font-family: 'myFont',sans-serif;
+    background-color: rgba(255,255,255,0.2);
+    color: rgba(65, 64, 64, 1);
+}
+
+.inputfield:hover{
+    border-bottom: 1px solid rgba(126, 125, 125, 0.726);
+}
+
+.inputfield:focus{
+    border-bottom: 2px solid rgba(126, 125, 125, 0.726);
+}
+
+.registerBtn{
+    background-color: rgba(75, 73, 73, 0.637);
+    color:white;
+    width: 120px;
+    height: 40px;
+    margin:10px;
+    width: 80%;
+    border: none ;
+    outline: none;
+    border-radius: 5px;
+}
+
+.registerBtn:hover{
+    background-color: rgba(27, 27, 27, 0.6);
+}
+
+
+/* General Stylings */
+
+@font-face{
+    font-family: myFont;
+    src:url(../font/Oswald-Regular.ttf);
+}
+

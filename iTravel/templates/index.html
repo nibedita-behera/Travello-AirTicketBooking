@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>OurTravello</title>
+    <link rel="stylesheet" href="{% static  'bootstrap-3.3.7-dist/css/bootstrap.min.css' %}">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js "></script>
+    <script src="{% static  'bootstrap-3.3.7-dist/js/bootstrap.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static  'css/index.css' %}">
+</head>
+
+<body>
+    <div class="header">
+
+        <!-- Collapsive Navbar -->
+
+        <div class="navbar" id="navb" align="center">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <div class="navbar-brand">
+                        Travello
+                    </div>
+                    <button class="navbar-toggle" data-toggle="collapse" data-target="#myNav">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="myNav">
+                    <ul class="nav navbar-nav myNav">
+                        <li class="active">Home</li>
+                        <li class="underline">About Us</li>
+                        <li class="underline">Services</li>
+                        <li class="underline">News</li>
+                        <li class="underline">Contact</li>
+                        {% if user.is_authenticated %}
+                        <a><li class="underine">{{user.first_name}}</li></a>
+                        <a style="color: white;" href='/user/logout'><li>Logout</li></a>
+                        <a style="color:white;" href='/user/register'><li class="underline">Register</li></a>
+                        <a style="color:white;" href='/user/login'><li class="underline">Login</li>
+                        {% endif %}
+                        <li>Call us : 00-56 445 678 33</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="motto">
+                    Let us take you away
+                </div>
+
+                <!-- Side Menu -->
+
+                <div class="sideTabs">
+                    <a href="#" data-scroll-to="#section1" class="underline">Offers &nbsp; 01</a>
+                    <br>
+                    <a href="#" data-scroll-to="#section2" class="underline">Testimonials &nbsp; 02</a>
+                    <br>
+                    <a href="#" data-scroll-to="#section3" class="underline">Latest &nbsp; 03</a>
+                </div>
+
+                <!-- Search for your Trip -->
+
+                <div class="searchForm">
+                    <br>
+                    <div>
+                        <br>
+                        <div class="searchFormTitle">Search for your Trip</div>
+                        <br>
+                        <div class="searchFormContent">
+                            <form>
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="  col-md-3 ">
+                                            <input type="text" placeholder="City" class="inputSearch">
+                                        </div>
+                                        <div class=" col-md-2 ">
+                                            <input type="text" placeholder="Departure" class="inputSearch">
+                                        </div>
+                                        <div class=" col-md-2 ">
+                                            <input type="text" placeholder="Arrival" class="inputSearch">
+                                        </div>
+                                        <div class=" col-md-3 ">
+                                            <input type="text" placeholder="Budget" class="inputSearch">
+                                        </div>
+                                        <div class=" col-md-2">
+                                            <button class="btn searchButton">Search</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <!-- List of Services -->
+
+            <div class="row">
+                <div class="intro">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="col-md-4 myClass">
+                                <img class="iconPic" src="{% static 'images/beach.svg' %}" alt="">
+                            </div>
+                            <div class="col-md-8 myClass">
+                                <div class="contentTitle">Top Destinations</div>
+                                <div class="contentSubtitle">Nulla pretium tincidunt felis, nec.</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="row">
+                                <div class="col-md-4 myClass">
+                                    <img class="iconPic" src="{% static 'images/wallet.svg' %}" alt="">
+                                </div>
+                                <div class="col-md-8 myClass">
+                                    <div class="contentTitle">The Best Prices</div>
+                                    <div class="contentSubtitle">Sollicitudin mauris lobortis in.</div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-4 myClass">
+                                <img class="iconPic" src="{% static 'images/suitcase.svg' %}" alt="">
+                            </div>
+                            <div class="col-md-8 myClass">
+                                <div class="contentTitle">Amazing Services</div>
+                                <div class="contentSubtitle">Nulla pretium tincidunt felis, nec.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <hr style="margin: 60px;height: 1px;background:lightgray">
+        <br>
+        <br>
+        <br>
+        <div class="motto1" id="section1">SIMPLY AMAZING PLACES</div>
+        <br>
+        <div class="motto2">Popular Destinations</div>
+
+        <!-- List of Trips -->
+
+        <div class="tripList">
+            <div class="row">
+                {% static 'images' as baseURL %}
+                {% for dest in dests %}
+                <div class="col-md-4 trip">
+                    {% if dest.offer %}
+                    <span class="notify-badge">Offer</span>
+                    {% endif %}
+                    <img src="{{dest.image.url}}" alt="" class="tripImage">
+                    <div class="tripTitle">{{dest1.price}}</div>
+                    <div class="tripDescription">{{dest.desc}}</div>
+                    <div class="tripCost">From ${{dest.price}}</div>
+                </div>
+                {% endfor %}
+                               
+                
+                
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <!-- Motto for the page -->
+
+        <div id="section2" class="container coloredMotto">
+            <div class="motto3">SIMPLY AMAZING PLACES</div>
+            <div class="motto4"> Testimonials</div>
+            <br>
+            <br>
+            <div class="motto5">Lorem ipsum dolor sit amet,consectetur adipiscing elit.lobortis dolor.Cras placerat lectus a posuere aliquet.Curabitur
+                quis vehicula odio.</div>
+            <div class="motto6">JOHN TURNER,
+                <span class="innermotto6"> CLIENT</span>
+            </div>
+            <br>
+            <br>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <!-- Upcoming Trips -->
+
+        <div id="section3" class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="{% static 'images/news_1.jpg' %}" alt="" class="newsPic">
+                        </div>
+                        <div class="col-md-8 col-md-offset-1">
+                            <div class="newsDisplay">
+                                <div class="newsMonth">
+                                    <span class="newsDate">02</span> JUNE</div>
+                                <div class="newsContent">Best trips to travel light</div>
+                                <div class="newsCategory">LIFESTYLE AND TRAVEL</div>
+                                <br>
+                                <div class="newsDescription">Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo. Vivamus massa.Tempor
+                                    massa et laoreet.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="{% static 'images/news_2.jpg' %}" alt="" class="newsPic">
+                        </div>
+                        <div class="col-md-8 col-md-offset-1">
+                            <div class="newsDisplay">
+                                <div class="newsMonth">
+                                    <span class="newsDate">01</span> JUNE</div>
+                                <div class="newsContent">Best trips to travel light</div>
+                                <div class="newsCategory">LIFESTYLE AND TRAVEL</div>
+                                <br>
+                                <div class="newsDescription">Tempor massa et laoreet malesuada. Pellentesque sit amet elementum ccumsan sit amet mattis
+                                    eget, tristique at leo.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="{% static 'images/news_3.jpg' %}" alt="" class="newsPic">
+                        </div>
+                        <div class="col-md-8 col-md-offset-1">
+                            <div class="newsDisplay">
+                                <div class="newsMonth">
+                                    <span class="newsDate">29</span> MAY</div>
+                                <div class="newsContent">Best trips to travel light</div>
+                                <div class="newsCategory">LIFESTYLE AND TRAVEL</div>
+                                <br>
+                                <div class="newsDescription">Vivamus massa.Tempor massa et laoreet malesuada. Aliquam nulla nisl, accumsan sit amet mattis.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+
+                <!-- Offers available -->
+
+                <div class="col-md-4 ">
+                    <div class="discount">
+                        <div class="pinkBox"></div>
+                        <div class="discountTag">Get a 20% Discount</div>
+                        <div class="discountDescription">Buy Your Vacation Online Now</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+
+        <!-- News Letter -->
+
+        <div>
+            <div class="newsLetter">
+                <div class="newsletterTitle">Subscribe to our newsletter to get the latest trends & news</div>
+                <br>
+                <div class="newsLetterSubtitle">Join our database NOW!</div>
+                <br>
+                <br>
+                <div class="container">
+                    <div class="row">
+                        <form class="display" action="">
+                            <div class="col-md-3 col-md-offset-2">
+                                <input type="text" placeholder="Name" class="inputNewsLetter">
+                            </div>
+                            <div class="col-md-3">
+                                <input type="text" placeholder="Your Email" class="inputNewsLetter">
+                            </div>
+                            <div class="col-md-3">
+                                <button class="btn  myBtn">SUBSCRIBE</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="row">
+                    <div class="col-md-4 myClass">
+                        <img src="{% static 'images/sign.svg' %}" alt="" class="newsIconPic">
+                        <div class="newsLetterSub">GIVE US A CALL</div>
+                        <div class="newsLetterText">Landline: +44 5567 32 664 567</div>
+                        <div class="newsLetterText">Mobile: +44 5567 30 674 567 </div>
+                    </div>
+                    <div class="col-md-4 myClass">
+                        <img src="{% static 'images/trekking.svg' %}" alt="" class="newsIconPic">
+                        <div class="newsLetterSub">COME & DROP BY</div>
+                        <div class="newsLetterText">4124 Bames Street,Sanford</div>
+                        <div class="newsLetterText">FL 32771</div>
+                    </div>
+                    <div class="col-md-4 myClass">
+                        <img src="{% static 'images/around.svg' %}" alt="" class="newsIconPic">
+                        <div class="newsLetterSub">SEND US A MESSAGE</div>
+                        <div class="newsLetterText">youremail@gmail.com</div>
+                        <div class="newsLetterText">office@yourbussinessname.com</div>
+                    </div>
+                </div>
+                <br>
+                <div class="footer">Copyright 2020 All rights reserved | This template is made by ETA</div>
+            </div>
+        </div>
+</body>
+<script src="{% static 'js/index.js' %}"></script>
+
+</html>

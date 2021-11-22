@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>OurTravello</title>
+    <link rel="stylesheet" href="{% static 'bootstrap-3.3.7-dist/css/bootstrap.min.css' %}">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js "></script>
+    <script src="{% static 'bootstrap-3.3.7-dist/js/bootstrap.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static '/css/register.css' %}">
+
+
+</head>
+
+<body>
+    <div class="header">
+
+        <!-- Collapsive Navbar -->
+
+        <div class="navbar" id="navb" align="center">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <div class="navbar-brand">
+                        Travello
+                    </div>
+                    <button class="navbar-toggle" data-toggle="collapse" data-target="#myNav">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="myNav">
+                    <ul class="nav navbar-nav myNav">
+                        <li class="underline" onclick="location.assign('./index.html')">Home</li>
+                        <li class="underline">About Us</li>
+                        <li class="underline">Services</li>
+                        <li class="underline">News</li>
+                        <li class="underline">Contact</li>
+                        <li class="active" onclick="location.assign('./register.html')">Register</li>
+                        <li class="underline" onclick="location.assign('./login.html')">Login</li>
+                        <li>Call us : 00-56 445 678 33</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Register Form -->
+
+        <div class="container">
+            <div class="row myBox">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="innerBox">
+                        <div class="row">
+                            <div class="col-md-5 firstCol">
+                                <div class="titleTag">Welcome to Travello.</div>
+                                <div class="descriptionTag">Are you ready to join the elite?</div>
+                            </div>
+                            <div class="col-md-7 secondCol">
+                                <div class="formHead">Sign Up</div>
+                                <form method=POST action=''>
+                                    {% csrf_token %}
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <input type="text" name='username' placeholder="Username" class="inputfield" required>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <input type="email" name='email' placeholder="Email" class="inputfield" required>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <input type="text" name='first_name' placeholder="First Name" class="inputfield" required>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <input type="text" name='last_name' placeholder="Last Name" class="inputfield" required>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <input type="password" name='password' placeholder="Password" class="inputfield" required>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <input type="password" name='password2' placeholder="Confirm Password" class="inputfield" required>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <button class="registerBtn">Sign Up</button>
+                                                    
+                                                </div>
+                                                
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    {% for message in messages %}
+                                                <strong><h3>{{message}}</h3></strong>
+                                    {% endfor %}
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+</body>
+    <script src="{% static 'js/index.js' %}"></script>
+    ​
+
+</html>
