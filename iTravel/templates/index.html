@@ -159,15 +159,16 @@
             <div class="row">
                 {% static 'images' as baseURL %}
                 {% for dest in dests %}
-                <div class="col-md-4 trip">
-                    {% if dest.offer %}
-                    <span class="notify-badge">Offer</span>
-                    {% endif %}
-                    <img src="{{dest.image.url}}" alt="" class="tripImage">
-                    <div class="tripTitle">{{dest1.price}}</div>
-                    <div class="tripDescription">{{dest.desc}}</div>
-                    <div class="tripCost">From ${{dest.price}}</div>
-                </div>
+                <a href="{% url 'Travello:details' dest.id %}" style="color: black">
+                    <div class="col-md-4 trip">
+                        {% if dest.offer %}
+                        <span class="notify-badge">Offer</span>
+                        {% endif %}
+                        <img src="{{dest.image.url}}" alt="" class="tripImage">
+                        <div class="tripTitle">{{dest.name}}</div>
+                        <div class="tripDescription">{{dest.desc}}</div>
+                        <div class="tripCost">From ${{dest.price}}</div>
+                    </div></a>
                 {% endfor %}
                                
                 
