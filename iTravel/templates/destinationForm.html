@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>OurTravello</title>
+    <link rel="stylesheet" href={% static "bootstrap-3.3.7-dist/css/bootstrap.min.css" %}>
+    <link href="https://lex.infosysapps.com/authoring/content-store/content-store/Infosys/Infosys_Ltd/Public/lex_auth_01288538709749760066/web-hosted/assets/https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://lex.infosysapps.com/authoring/content-store/content-store/Infosys/Infosys_Ltd/Public/lex_auth_01288538709749760066/web-hosted/assets/https://code.jquery.com/jquery-3.4.1.min.js "></script>
+    <script src={% static "bootstrap-3.3.7-dist/js/bootstrap.min.js" %}></script>
+    <link rel="stylesheet" href={% static "css/register.css" %}>
+
+
+</head>
+
+<body>
+    <div class="header">
+
+        <!-- Collapsive Navbar -->
+
+        <div class="navbar" id="navb" align="center">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <div class="navbar-brand">
+                        Travello
+                    </div>
+                    <button class="navbar-toggle" data-toggle="collapse" data-target="#myNav">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="myNav">
+                    <ul class="nav navbar-nav myNav">
+                        <a href="https://lex.infosysapps.com/authoring/content-store/content-store/Infosys/Infosys_Ltd/Public/lex_auth_01288538709749760066/web-hosted/assets//"><li class="underline" >Home</li></a>
+                        <li class="underline">About Us</li>
+                        <li class="underline">Services</li>
+                        <li class="underline">News</li>
+                        <li class="underline">Contact</li>
+                       <a href="https://lex.infosysapps.com/authoring/content-store/content-store/Infosys/Infosys_Ltd/Public/lex_auth_01288538709749760066/web-hosted/assets/user/register"> <li class="active">Register</li></a>
+                       <a href="https://lex.infosysapps.com/authoring/content-store/content-store/Infosys/Infosys_Ltd/Public/lex_auth_01288538709749760066/web-hosted/assets/user/login"> <li class="underline" >Login</li></a>
+                        <li>Call us : 00-56 445 678 33</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Register Form -->
+
+        <div class="container">
+            <div class="row myBox" >
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="innerBox" >
+                        <div class="row">
+                            
+                            <div class="col-md-10 secondCol centre" style="opacity:100%;border-radius:50px;margin-left: 25%;width:500px;">
+                                <div class="formHead">Add Destination</div>
+                                <form method=POST action='' enctype="multipart/form-data">
+                                {% csrf_token %}
+                                    <div class="container-fluid">
+                                        <div class="row" style='float:left'>
+                                            {% for field in form %}
+                                                <div class="label label-warning" style="float:left">{{field.label_tag}}</div>
+                                                {{field}}
+                                                <br>
+                                            {% endfor %}
+                                        </div> 
+                                    </div> 
+                                    <div class="col-md-14">
+                                        <input type=submit value='Submit' class="registerBtn"/>
+                                    <br>
+                                    {% for message in messages %}
+									<strong><h3>{{message}}</h3></strong>
+									{% endfor %}
+									</div>
+                                            
+                                    
+                                </form>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+    <script src={% static "js/index.js" %}></script>
+</html>
