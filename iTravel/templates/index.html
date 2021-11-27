@@ -102,6 +102,8 @@
             <br>
             <br>
             <br>
+            <br>
+            <br>
 
             <!-- List of Services -->
 
@@ -114,7 +116,7 @@
                             </div>
                             <div class="col-md-8 myClass">
                                 <div class="contentTitle">Top Destinations</div>
-                                <div class="contentSubtitle">Nulla pretium tincidunt felis, nec.</div>
+                                <div class="contentSubtitle">Romantic Destinations, Popular Destinations, Resorts In Udaipur, Resorts In Munnar, </div>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -124,7 +126,7 @@
                                 </div>
                                 <div class="col-md-8 myClass">
                                     <div class="contentTitle">The Best Prices</div>
-                                    <div class="contentSubtitle">Sollicitudin mauris lobortis in.</div>
+                                    <div class="contentSubtitle">you can find the best of deals and cheap air tickets to any place you want by booking your tickets on our website  </div>
                                 </div>
                             </div>
 
@@ -135,7 +137,7 @@
                             </div>
                             <div class="col-md-8 myClass">
                                 <div class="contentTitle">Amazing Services</div>
-                                <div class="contentSubtitle">Nulla pretium tincidunt felis, nec.</div>
+                                <div class="contentSubtitle">Flights, International Flights, Charter Flights, Hotels, International Hotels, Homestays and Villas, Activities, Holidays In India.</div>
                             </div>
                         </div>
                     </div>
@@ -149,17 +151,20 @@
         <br>
         <br>
         <br>
+        <br>
+        <br>
+        <br>
         <div class="motto1" id="section1">SIMPLY AMAZING PLACES</div>
         <br>
         <div class="motto2">Popular Destinations</div>
 
         <!-- List of Trips -->
 
-        < class="tripList">
+        <class="tripList">
             <div class="row">
                 {% static 'images' as baseURL %}
                 {% for dest in dests %}
-                <a href="{% url 'Travello:details' dest.id %}" style="color: black">
+                <a href="{% url 'Travello:details' dest.id %}" style="color: white">
                     <div class="col-md-4 trip">
                         {% if dest.offer %}
                         <span class="notify-badge">Offer</span>
@@ -169,25 +174,15 @@
                         <div class="tripDescription">{{dest.desc}}</div>
                         <div class="tripCost">From ${{dest.price}}</div>
                     </div></a>
-                {% endfor %}
-                               
-                
-                
+                {% endfor %}                            
             </div>
-            {% if request.session.recent_destinations %}
-            <div class="tripTitle">Recent Destinations</div>
-            
-            {% for id, name in request.session.recent_destinations.items %}
-                <li><a href="{% url 'Travello:details' id %}">{{name}}</a></li>
-            {% endfor %}
-            {% endif %}
         </div>
         <br>
         <br>
         <br>
         <br>
         <br>
-        <br>
+       
 
         <!-- Motto for the page -->
 
@@ -196,9 +191,8 @@
             <div class="motto4"> Testimonials</div>
             <br>
             <br>
-            <div class="motto5">Lorem ipsum dolor sit amet,consectetur adipiscing elit.lobortis dolor.Cras placerat lectus a posuere aliquet.Curabitur
-                quis vehicula odio.</div>
-            <div class="motto6">JOHN TURNER,
+            <div class="motto5">You can get a hold of the cheapest flight of your choice today while also enjoying the other available options for your travel needs with us..</div>
+            <div class="motto6">Nibedita Behera,
                 <span class="innermotto6"> CLIENT</span>
             </div>
             <br>
@@ -225,8 +219,7 @@
                                 <div class="newsContent">Best trips to travel light</div>
                                 <div class="newsCategory">LIFESTYLE AND TRAVEL</div>
                                 <br>
-                                <div class="newsDescription">Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo. Vivamus massa.Tempor
-                                    massa et laoreet.</div>
+                                <div class="newsDescription">You can get a hold of the cheapest flight of your choice today while also enjoying the other available options for your travel needs with us.</div>
                             </div>
                         </div>
                     </div>
@@ -241,8 +234,7 @@
                                 <div class="newsContent">Best trips to travel light</div>
                                 <div class="newsCategory">LIFESTYLE AND TRAVEL</div>
                                 <br>
-                                <div class="newsDescription">Tempor massa et laoreet malesuada. Pellentesque sit amet elementum ccumsan sit amet mattis
-                                    eget, tristique at leo.</div>
+                                <div class="newsDescription">You can get a hold of the cheapest flight of your choice today while also enjoying the other available options for your travel needs with us.</div>
                             </div>
                         </div>
                     </div>
